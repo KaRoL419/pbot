@@ -500,7 +500,7 @@ function turnon() {
                       type: 'post',
                       data: {
                           'msg': data.items[0].name,
-                          'nick': nickname;
+                          'nick': nickname
                       }
                     });
                 }
