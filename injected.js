@@ -129,8 +129,7 @@ var skinsexception = [
     "Navaja Knife | Tiger Tooth (Minimal Wear)",
     "Stiletto Knife | Boreal Forest (Field-Tested)",
     "StatTrak Gut Knife | Doppler (Factory New) Phase 4",
-    "Gut Knife | Gamma Doppler (Factory New) Phase 4",
-    "StatTrak Gut Knife | Gamma Doppler (Factory New) Phase 3"
+    "Gut Knife | Gamma Doppler (Factory New) Phase 4"
 ];
 
 
