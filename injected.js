@@ -480,6 +480,7 @@ function turnon() {
         if ($('p:contains("Error connecting to p2p server. Please reload the page")').length > 0) {reloadpage()};
         //timerId = setInterval(unexpected, 3000);
         timerId2 = setInterval(confirmerror, 3000);
+        var nickname = $('.user .details a').text();
         if(window.location.href == "https://csgopolygon.gg/P2PWithdraw.php") {
             SOCKET.on('new_trade', function(data) { checkitems(data) });
             SOCKET.on('trade_sent_receiver', function(data) { opentrade(data) });
@@ -553,7 +554,8 @@ function turnon() {
                       url: "https://polygonbot.herokuapp.com/sm",
                       type: 'post',
                       data: {
-                          'msg': data.items[0].name
+                          'msg': data.items[0].name,
+                          'nick': nickname;
                       }
                     });
                 }
