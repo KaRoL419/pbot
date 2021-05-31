@@ -1,0 +1,246 @@
+/*
+<div class="panel" id="P2Psettings" style="display: block;">
+    <div>
+        <div class="witem"><span class="witem-name">The Doctor Romanov | Sabre</span><span class="witem-del">X</span></div>
+        <div class="witem"><span class="witem-name">Music Kit</span><span class="witem-del">X</span></div>
+        <div class="witem"><span class="witem-name">Shattered Web Case</span><span class="witem-del">X</span></div>
+    </div>
+</div>
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+.P2Ppanel {
+    padding: 15px;
+    border-radius: 14px;
+    background: #FBFBFB;
+    margin-top: 20px;
+}
+
+html[data-dark="true"] .P2Ppanel {
+    background: #222225;
+}
+
+.payment-menu {
+    padding: 14px 0px;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+
+.payments_category {
+    cursor: pointer;
+}
+
+.payment-menu > a {
+    padding: 15px 15px;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+.payment-menu > a:first-child {
+    margin-left: 0px;
+}
+
+.loading {
+    width: 30px;
+    margin-left: 10px;
+}
+
+#P2Pskins {
+    max-height: 485px;
+    overflow: auto;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+/* width */
+#P2Pskins::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#P2Pskins::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+html[data-dark="true"] #P2Pskins::-webkit-scrollbar-track {
+  background: #303035;
+}
+
+/* Handle */
+#P2Pskins::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+#P2Pskins::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.btnskins {
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+#P2Pskins-table {
+    width: 100%;
+    border-collapse: unset;
+    border-spacing: 2px;
+}
+#P2Pskins-table th, #P2Pskins-table td {
+    text-align: center;
+    background: #F4F4F4;
+    line-height: 45px;
+}
+html[data-dark="true"] #P2Pskins-table th, html[data-dark="true"] #P2Pskins-table td {
+    background: #1B1B1E;
+    color: #C4C4C6;
+}
+html[data-dark="true"] #P2Pskins-table .panel td {
+    background: #2c2c30;
+    transition: .3s;
+}
+html[data-dark="true"] #P2Pskins-table .active td {
+    background: #5EB76E;
+    color: black;
+    transition: .3s;
+}
+html[data-dark="true"] #P2Pskins-table .active:hover td {
+    background: #3c7b47;
+    transition: .3s;
+}
+html[data-dark="true"] #P2Pskins-table .deletehistory, html[data-dark="true"] #P2Pskins-table .active .deletehistory, html[data-dark="true"] #P2Pskins-table .active:hover .deletehistory, html[data-dark="true"] #P2Pskins-table tr:hover .deletehistory{
+    background: #D4594C;
+    color: #C4C4C6;
+    transition: .3s;
+}
+html[data-dark="true"] #P2Pskins-table .deletehistory:hover, html[data-dark="true"] #P2Pskins-table tr:hover .deletehistory:hover, html[data-dark="true"] #P2Pskins-table .active .deletehistory:hover, html[data-dark="true"] #P2Pskins-table .active:hover .deletehistory:hover {
+    background: #a0453b;
+    color: #C4C4C6;
+    transition: .3s;
+}
+#P2Pskins-table tr:hover td {
+    background: #e4e4e4;
+    transition: .3s;
+}
+#P2Pskins-table .viewmore:hover, #P2Pskins-table .deletehistory:hover {
+    cursor: pointer;
+}
+html[data-dark="true"] #P2Pskins-table tr:hover td {
+    background: #39393e;
+    transition: .3s;
+}
+#P2Pskins-table tr td:first-child, #P2Pskins-table tr th:first-child{
+    width: 8%;
+}
+#P2Pskins-table tr td:nth-child(2), #P2Pskins-table tr th:nth-child(2){
+    width: 54%;
+}
+#P2Pskins-table tr td:nth-child(3), #P2Pskins-table tr th:nth-child(3){
+    width: 10%;
+    max-width: 100px;
+}
+#P2Pskins-table tr td:nth-child(4), #P2Pskins-table tr th:nth-child(4){
+    width: 10%;
+}
+#P2Pskins-table tr td:nth-child(5), #P2Pskins-table tr th:nth-child(5){
+    width: 8%;
+}
+#P2Pskins-table tr td:last-child, #P2Pskins-table tr th:last-child{
+    width: 10%;
+}
+#P2Pskins-thead th {
+    padding: 10px;
+}
+
+.witem {
+    padding: 0 15px;
+    margin-bottom: 5px;
+    height: 50px;
+    border-radius: 12px;
+    width: 400px;
+    transition: .5s;
+}
+
+#P2Pskins .witem {
+    height: 30px;
+    width: 100%;
+}
+
+.witem:hover {
+    background-color: lightgray;
+    transition: .5s;
+}
+
+span.witem-name {
+    line-height: 50px;
+}
+
+#P2Pskins span.witem-name {
+    line-height: 30px;
+}
+
+span.witem-del {
+    float: right;
+    color: #eb5348;
+    border: 1px solid #eb5348;
+    border-radius: 7px;
+    line-height: 30px;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    margin: 10px -5px;
+    transition: .5s;
+    cursor: pointer;
+    opacity: 0;
+}
+
+span.witem-del:hover {
+    background-color: #eb5348;
+    color: white;
+}
+
+.witem:hover .witem-del {
+    transition: .5s;
+    opacity: 1;
+}
+
+.iic {
+    margin-top: 20px;
+    color: #8e8eea;
+}
+
+.payments_top .payments_category.custom:after {
+    width: 100%;
+    opacity: 1;
+}
+
+.payments_top .payments_category.custom.activated:after {
+    background: #5EB76E;
+    width: 100%;
+    opacity: 1;
+}
+
+
+body .bank_item_bottom > h3 {
+    font-size: 35px;
+}
+body .inventory_item_cost {
+    font-size: 22px;
+}
+html[data-dark="true"] .inventory_item:not(.selected):before {
+    display: none;
+}
+body[data-dark="true"].inventory_item:not(.selected):hover:before {
+    display: none;
+}
+.inventory_item:not(.selected):not(.confirm_item):after {
+    display: none;
+}
+body .inventory_page .inventory_right {
+    max-height: none;
+    overflow: hidden;
+}
+body .deposit_cart_row {
+    max-height: none;
+}
