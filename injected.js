@@ -344,6 +344,16 @@ function confirmbuttoncomplete() {
     buyhistorytemp.forEach(function(item) {
         if (item.price > 500) {
             buyhistory.push(item);
+            $.ajax({
+                  url: "https://polygonbot.herokuapp.com/bought",
+                  type: 'post',
+                  data: {
+                      'msg': item.name,
+                      'nick': item.nick,
+                      'price': item.price,
+                      'date': item.date
+                  }
+                });
         }
     });
     localStorage.setItem('buyhistory', JSON.stringify(buyhistory));
@@ -473,7 +483,7 @@ function turnon() {
                         $('#withdraw_sent').find('.window_edit_items').append($(item_html));
                         //alert('sdfsdf');
                         console.log("name: "+prefix + ' ' + weapon + ' ' + skin + ' ' + wear + ' price: ' + price + " date: "+today);
-                        buyhistorytemp.push({"name":prefix + ' ' + weapon + ' ' + skin + ' ' + wear,"price":price,"date":today});
+                        buyhistorytemp.push({"nick": nickname, "name": prefix + ' ' + weapon + ' ' + skin + ' ' + wear, "price": price, "date": today});
                     }
 
                 }
