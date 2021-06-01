@@ -203,7 +203,7 @@ function checkprice(name, image) {
           imageUrl: image,
           imageHeight: 200,
           title: name,
-          html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span>'
+          html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span><br><br><a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak">Steam market</a>'
         })
     });
 }
