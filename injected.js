@@ -555,6 +555,8 @@ function turnon() {
 }
 
 function addblocksP2P() {
+    
+    clearInterval(timerId);
 
     if (LANG_SELECT == 'ru') {
         botlng['settings'] = 'Настройки бота';
