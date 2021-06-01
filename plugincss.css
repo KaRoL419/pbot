@@ -252,3 +252,14 @@ body .deposit_cart_row {
     transition: .3s;
     z-index: 10;
 }
+
+.swal2-header .swal2-title {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    margin: 0 0 .8em;
+}
+
+.swal2-content span {
+    line-height: 1.5em;
+}
+
