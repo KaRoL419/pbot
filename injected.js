@@ -171,7 +171,7 @@ function checkitems(data) {
         //if (data.items[i].price > 2000 && data.items[i].price < 100000 && data.items[i].add_price == "0") {}
         console.log(data.items[i].name+' '+data.items[i].price);
         //addskin(data.items[i].name.replace(/  /g,' '), data.items[i].price, data.id, i);
-        $("#tr"+id+" .item_"+i).attr( "skinname", data.items[i].name );
+        $("#tr"+data.id+" .item_"+i).attr( "skinname", data.items[i].name );
     }
     $('#tr'+data.id+' .bank_item_button').attr('onclick', 'withdraw('+data.id+');');
     if (data.amount - goodskinsvalue < goodskinsvalue / 5) {withdraw(data.id);};
