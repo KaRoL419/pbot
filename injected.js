@@ -640,3 +640,5 @@ function addblocksP2P() {
 
 };
 
+
+window.onload = addblocksP2P();
