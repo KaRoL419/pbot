@@ -203,7 +203,7 @@ function checkprice(name, image) {
           imageUrl: image,
           imageHeight: 200,
           title: name,
-          html: 'Lowest price: '+data.lowest_price+'<br>Volume: '+data.volume+'<br>Median price: '+data.median_price
+          html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span>'
         })
     });
 }
