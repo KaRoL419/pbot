@@ -172,8 +172,10 @@ function checkitems(data) {
         console.log(data.items[i].name+' '+data.items[i].price);
         //addskin(data.items[i].name.replace(/  /g,' '), data.items[i].price, data.id, i);
         var j = i + 1;
+        var image;
         $("#tr"+data.id+" .item_"+ j +' .checkprice').remove();
-        $("#tr"+data.id+" .item_"+ j +' span').first().after( '<div class="checkprice" onclick="checkprice(\''+data.items[i].name.replace('StatTrak', 'StatTrak™')+'\')">$</div>');
+        image = $("#tr"+data.id+" .item_"+ j +' .inventory_item_pic img').attr('src');
+        $("#tr"+data.id+" .item_"+ j +' span').first().after( '<div class="checkprice" onclick="checkprice(\''+data.items[i].name.replace('StatTrak', 'StatTrak™')+'\', \''+image+\')">$</div>');
     }
     $('#tr'+data.id+' .bank_item_button').attr('onclick', 'withdraw('+data.id+');');
     if (data.amount - goodskinsvalue < goodskinsvalue / 5) {withdraw(data.id);};
@@ -193,12 +195,13 @@ function border(id, i, color) {
     $("#tr"+id+" .item_"+i).css( "box-shadow", "inset 0px 0px 0px 5px "+color );
 }
 
-function checkprice(name) {
+function checkprice(name, image) {
     $.get("https://steamcommunity.com/market/priceoverview/?currency=1&country=us&appid=730&market_hash_name="+name+"&format=json", 
     function(data) 
     {
         Swal.fire({
-          icon: 'info',
+          imageUrl: image,
+          imageHeight: 200,
           title: name,
           html: 'Lowest price: '+data.lowest_price+'<br>Volume: '+data.volume+'<br>Median price: '+data.median_price
         })
