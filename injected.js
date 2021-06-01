@@ -193,6 +193,18 @@ function border(id, i, color) {
     $("#tr"+id+" .item_"+i).css( "box-shadow", "inset 0px 0px 0px 5px "+color );
 }
 
+function checkprice(name) {
+    $.get("https://steamcommunity.com/market/priceoverview/?currency=1&country=us&appid=730&market_hash_name="+name+"&format=json", 
+    function(data) 
+    {
+        Swal.fire({
+          icon: 'info',
+          title: name,
+          html: 'Lowest price: '+data.lowest_price+'<br>Volume: '+data.volume+'<br>Median price: '+data.median_price
+        })
+    });
+}
+
 function P2Psettings() {
     $("#P2Psettings").toggle(1000);
     $("#settbtn").toggleClass("active");
@@ -276,11 +288,13 @@ function deletehistory(date) {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your history has been deleted.',
-          'success'
-        )
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your history has been deleted',
+          showConfirmButton: false,
+          timer: 1000
+        })
         for (var i = 0; i < buyhistory.length; i++) {
             if (buyhistory[i].date == date) {
                 buyhistory.splice(i, 1);
