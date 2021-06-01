@@ -236,3 +236,19 @@ body .inventory_page .inventory_right {
 body .deposit_cart_row {
     max-height: none;
 }
+
+.checkprice:hover {
+    cursor: pointer;
+    color: #5EB76E;
+    transition: .3s;
+}
+
+.checkprice {
+    position: absolute;
+    margin: 15px 20px;
+    color: #D4594C;
+    font-size: 25px;
+    font-weight: bold;
+    transition: .3s;
+    z-index: 10;
+}
