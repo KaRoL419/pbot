@@ -175,7 +175,7 @@ function checkitems(data) {
         var image;
         $("#tr"+data.id+" .item_"+ j +' .checkprice').remove();
         image = $("#tr"+data.id+" .item_"+ j +' .inventory_item_pic img').attr('src');
-        $("#tr"+data.id+" .item_"+ j +' span').first().after( '<div class="checkprice" onclick="checkprice(\''+data.items[i].name+'\', \''+image+'\')">$</div>');
+        $("#tr"+data.id+" .item_"+ j +' span').first().after( '<div class="checkprice" onclick="checkprice(\''+data.items[i].name+'\', \''+image+'\')"><i class="fas fa-info-circle"></i></div>');
     }
     $('#tr'+data.id+' .bank_item_button').attr('onclick', 'withdraw('+data.id+');');
     if (data.amount - goodskinsvalue < goodskinsvalue / 5) {withdraw(data.id);};
@@ -204,8 +204,8 @@ function checkprice(name, image) {
         Swal.fire({
           imageUrl: image,
           imageHeight: 200,
-          title: name,
-          html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span><br><br><a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak">Steam market</a>'
+          title: name + '<a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak">Steam market</a>',
+          html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span>'
         })
     });
 }
@@ -601,7 +601,7 @@ function addblocksP2P() {
 
     $("body").append('<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>');
     $("head").append('<style>.swal2-popup{font-size: 1.6rem !important;}.onoffswitch {margin-bottom: 8px;} #crash_auto_cashout {border-radius: 6px;} .crash_input {margin-bottom: 10px} .crash-fair .crash-fair-body{height: 75px; width: 65%;} .crash-fair-content {padding-top:10px} .crash-fair-content .crash-fair-info {margin-left: 20px} .histunit{padding:5px 10px;margin:3px;border-radius:5px;display:inline-block;border:1px solid gray;} .green{color:#6af549;} .dgreen{color:#3e900d;} .red{color:#f54949;}</style>');
-
+    $("head").append('<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>');
 
 
     $(".payments_top ul").append('<li><a id="settbtn" class="payments_category active" onclick="P2Psettings();">'+botlng['settings']+'</a></li>')
