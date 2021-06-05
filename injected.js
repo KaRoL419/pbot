@@ -204,7 +204,7 @@ function checkprice(name, image) {
         Swal.fire({
           imageUrl: image,
           imageHeight: 200,
-          title: name + '<a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak">Steam market</a>',
+          title: name + '<a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak"><i class="fab fa-steam"></i></a>',
           html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span>'
         })
     });
