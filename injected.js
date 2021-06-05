@@ -57,16 +57,17 @@ var knives = [
 ];
 
 var skins2 = [
-    {name: "Fracture Case", price: 350},
+    {name: "Fracture Case", price: 250},
     {name: "Clutch Case", price: 270},
     {name: "Spectrum Case", price: 185},
-    //{name: "Gamma 2 Case", price: 240},
-    {name: "Gamma Case", price: 150},
+    {name: "Gamma 2 Case", price: 240},
+    {name: "Gamma Case", price: 250},
     {name: "Spectrum 2 Case", price: 90},
     {name: "Chroma 2 Case", price: 170},
     {name: "CS20 Case", price: 110},
-    {name: "Sticker Capsule 2", price: 6600},
-    {name: "Sticker Capsule 1", price: 2700}
+    {name: "Sticker Capsule 2", price: 10000},
+    {name: "Sticker Capsule 1", price: 2700},
+    {name: "Snakebite Case", price: 1000}
 ];
 
 var skinsexception = [
