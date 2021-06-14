@@ -137,7 +137,7 @@ function checkitems(data) {
             });
             skins10.forEach(function(item) {
                 if (data.items[i].name.includes(item)) {
-                    if (!exception && data.items[i].price > 70000 && data.items[i].price < 250000 && data.items[i].add_price == "0") {
+                    if (!exception && data.items[i].price > 50000 && data.items[i].price < 100000 && data.items[i].add_price == "0") {
                         console.log('**************success '+data.items[i].name);
                         setTimeout(border, 300, data.id, i, "#5EB76E");
                         audio["notification"].play();
@@ -149,7 +149,7 @@ function checkitems(data) {
         if (withdrawknifes) {
             knives.forEach(function(item) {
                 if (data.items[i].name.includes(item)) {
-                    if (!exception && data.items[i].price < 300000 && data.items[i].add_price == "0") {
+                    if (!exception && data.items[i].price < 200000 && data.items[i].add_price == "0") {
                         console.log('**************success '+data.items[i].name);
                         setTimeout(border, 300, data.id, i, "#5EB76E");
                         audio["knife"].play();
@@ -204,10 +204,13 @@ function checkprice(name, image) {
         Swal.fire({
           imageUrl: image,
           imageHeight: 200,
-          title: name + '<a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak"><i class="fab fa-steam"></i></a>',
+          title: '<span>' + name + '</span><a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak"><i class="fab fa-steam"></i></a>',
           html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span>'
         })
-    });
+    })
+    .fail(function(data) {
+        alert(data.statusText);
+    })
 }
 
 function P2Psettings() {
