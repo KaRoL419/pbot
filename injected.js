@@ -401,10 +401,13 @@ function confirmbuttoncanceled() {
 
 function add10() {
     $("#deposit_confrim_window .inventory_item").attr('add-price', 12);
-    var price = +$("#deposit_confrim_window .inventory_item .inventory_item_cost").html();
-    price = parseInt(price + price / 100 * 12);
-    price = price + ' (+12%)';
-    $("#deposit_confrim_window .inventory_item .inventory_item_cost").html(price);
+    for (var i = 0; i < $("#deposit_confrim_window .inventory_item .inventory_item_cost").length; i++) {
+        var item = $("#deposit_confrim_window .inventory_item .inventory_item_cost")[i];
+        var price = +$("#deposit_confrim_window .inventory_item .inventory_item_cost")[i].innerText;
+        price = parseInt(price + price / 100 * 12);
+        price = price + ' (+12%)';
+        $(item).html(price);
+    }
     calculate_deposit_price();
     $('.add10').remove();
 }
