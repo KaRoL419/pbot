@@ -59,10 +59,10 @@ var knives = [
 var skins2 = [
     {name: "Fracture Case", price: 250},
     {name: "Clutch Case", price: 270},
-    {name: "Spectrum Case", price: 185},
+//    {name: "Spectrum Case", price: 300},
     {name: "Gamma 2 Case", price: 240},
-    {name: "Gamma Case", price: 250},
-    {name: "Spectrum 2 Case", price: 90},
+    {name: "Gamma Case", price: 350},
+    {name: "Spectrum 2 Case", price: 300},
     {name: "Chroma 2 Case", price: 170},
     {name: "CS20 Case", price: 110},
     {name: "Sticker Capsule 2", price: 10000},
@@ -75,6 +75,7 @@ var skinsexception = [
     "Navaja Knife | Tiger Tooth (Minimal Wear)",
     "Stiletto Knife | Boreal Forest (Field-Tested)",
     "Gut Knife | Doppler",
+    "Gut Knife | Lore",
     "Gut Knife | Gamma Doppler"
 ];
 
@@ -204,12 +205,18 @@ function checkprice(name, image) {
         Swal.fire({
           imageUrl: image,
           imageHeight: 200,
-          title: '<span>' + name + '</span><a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak"><i class="fab fa-steam"></i></a>',
+          title: '<span>' + name + ' <a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak"><i class="fab fa-steam"></i></a></span>',
           html: '<span>Lowest price: '+data.lowest_price+'</span><br><span>Volume: '+data.volume+'</span><br><span>Median price: '+data.median_price+'</span>'
         })
     })
     .fail(function(data) {
         alert(data.statusText);
+        Swal.fire({
+          imageUrl: image,
+          imageHeight: 200,
+          title: '<span>' + name + ' <a href="https://steamcommunity.com/market/listings/730/'+name+'" target="_blak"><i class="fab fa-steam"></i></a></span>',
+          html: '<span>'+data.statusText+'</span>'
+        })
     })
 }
 
