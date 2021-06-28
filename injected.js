@@ -76,7 +76,8 @@ var skinsexception = [
     "Stiletto Knife | Boreal Forest (Field-Tested)",
     "Gut Knife | Doppler",
     "Gut Knife | Lore",
-    "Gut Knife | Gamma Doppler"
+    "Gut Knife | Gamma Doppler",
+    "Gut Knife | Slaughter (Factory New)"
 ];
 
 
