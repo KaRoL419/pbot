@@ -96,6 +96,9 @@ var withdrawskins100 = false;
 var withdrawknifes = false;
 var goodskinsvalue = 0;
 var timerId;
+var timerId3;
+var nickname;
+var link = 'withdraw';
 var audio = {};
 audio["coin"] = new Audio();
 audio["coin"].src = "https://www.soundjay.com/misc/sounds/coins-to-table-2.mp3";
@@ -473,8 +476,18 @@ function turnon() {
         if ($('p:contains("Error connecting to p2p server. Please reload the page")').length > 0) {reloadpage()};
         //timerId = setInterval(unexpected, 3000);
         timerId2 = setInterval(confirmerror, 3000);
-        var nickname = $('.user .details a').text();
-        if(window.location.href == "https://csgopolygon.gg/P2PWithdraw.php") {
+        timerId3 = setInterval(function() {
+            $.ajax({
+              url: "https://polygonbot.herokuapp.com/raport",
+              type: 'post',
+              data: {
+                  'nick': nickname,
+                  'link': link
+              }
+            });
+        }, 180000 );
+        nickname = $('.user .details a').text();
+        if(window.location.href == "https://csgopolygon.gg/P2PWithdraw.php" || window.location.href == "https://csgopolygon.gg/P2PWithdraw.php#") {
             SOCKET.on('new_trade', function(data) { checkitems(data) });
             SOCKET.on('trade_sent_receiver', function(data) { opentrade(data) });
             SOCKET.on('trade_complete_receiver', function() { setTimeout(confirmbuttoncomplete, 100) });
@@ -537,7 +550,7 @@ function turnon() {
 
             }
         }
-        if(window.location.href == "https://csgopolygon.gg/P2PDeposit.php") {
+        if(window.location.href == "https://csgopolygon.gg/P2PDeposit.php" || window.location.href == "https://csgopolygon.gg/P2PDeposit.php#") {
             SOCKET.on('trade_accepted', function(data) {
                 if ($('.sound.off').length == 0) audio["alert"].play();
                 if ($('.send.ready_to_trade').length != 0) {
@@ -570,6 +583,7 @@ function turnon() {
             SOCKET.on('connect_error', function() {reloadpage()});
             SOCKET.on('connect_timeout', function() {reloadpage()});
             SOCKET.on('disconnect', function() {reloadpage()});
+            link = 'deposit';
         }
         if (activebuttons[0]) togglewithdrawskins();
         if (activebuttons[1]) togglewithdrawskins100();
