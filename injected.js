@@ -99,6 +99,7 @@ var timerId;
 var timerId3;
 var nickname;
 var link = 'withdraw';
+var loginerror = false;
 var audio = {};
 audio["coin"] = new Audio();
 audio["coin"].src = "https://www.soundjay.com/misc/sounds/coins-to-table-2.mp3";
@@ -433,15 +434,16 @@ function confirmerror() {
     if ($('.window.window_status.window_error.window_warning_wide.opened button').length > 0) {
         if ($('.window.window_status.window_error.window_warning_wide.opened button').text() == "ErrorSession expired. Please log in and try again.OK" && loginerror == false) {
             $.ajax({
-                              url: "https://polygonbot.herokuapp.com/message",
-                              type: 'post',
-                              data: {
-                                  'nick': localStorage.nickname,
-                                  'msg': 'Log In'
-                              }
-                            });
+                  url: "https://polygonbot.herokuapp.com/message",
+                  type: 'post',
+                  data: {
+                      'nick': localStorage.nickname,
+                      'msg': 'Log In'
+                  }
+                });
+            loginerror = true;
         }
-        $('.window.window_status.window_error.window_warning_wide.opened button').click();
+        else $('.window.window_status.window_error.window_warning_wide.opened button').click();
     }
     if($('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://csgopolygon.gg/P2PWithdraw.php") $('.active_p2p_exchange.opened .p2p_confirm').click();
 }
