@@ -430,7 +430,19 @@ function unexpected() {
 }
 
 function confirmerror() {
-    if ($('.window.window_status.window_error.window_warning_wide.opened button').length > 0) $('.window.window_status.window_error.window_warning_wide.opened button').click();
+    if ($('.window.window_status.window_error.window_warning_wide.opened button').length > 0) {
+        if ($('.window.window_status.window_error.window_warning_wide.opened button').text() == "ErrorSession expired. Please log in and try again.OK" && loginerror == false) {
+            $.ajax({
+                              url: "https://polygonbot.herokuapp.com/message",
+                              type: 'post',
+                              data: {
+                                  'nick': localStorage.nickname,
+                                  'msg': 'Log In'
+                              }
+                            });
+        }
+        $('.window.window_status.window_error.window_warning_wide.opened button').click();
+    }
     if($('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://csgopolygon.gg/P2PWithdraw.php") $('.active_p2p_exchange.opened .p2p_confirm').click();
 }
 
@@ -485,8 +497,11 @@ function turnon() {
                   'link': link
               }
             });
-        }, 180000 );
-        nickname = $('.user .details a').text();
+        }, 120000 );
+        if ($('.user .details a').length > 0) {
+            nickname = $('.user .details a').text();
+            localStorage.nickname = nickname;
+        }
         if(window.location.href == "https://csgopolygon.gg/P2PWithdraw.php" || window.location.href == "https://csgopolygon.gg/P2PWithdraw.php#") {
             SOCKET.on('new_trade', function(data) { checkitems(data) });
             SOCKET.on('trade_sent_receiver', function(data) { opentrade(data) });
