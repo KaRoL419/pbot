@@ -432,7 +432,7 @@ function unexpected() {
 
 function confirmerror() {
     if ($('.window.window_status.window_error.window_warning_wide.opened button').length > 0) {
-        if ($('.window.window_status.window_error.window_warning_wide.opened button').text() == "ErrorSession expired. Please log in and try again.OK" && loginerror == false) {
+        if ($('.opened.window_error.window_warning_wide').text() == "ErrorSession expired. Please log in and try again.OK" && loginerror == false) {
             $.ajax({
                   url: "https://polygonbot.herokuapp.com/message",
                   type: 'post',
