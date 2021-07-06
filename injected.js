@@ -56,6 +56,10 @@ var knives = [
     "FaZe (Gold) | 2020 RMR"
 ];
 
+var stickers = [
+    "2020 RMR"
+];
+
 var skins2 = [
     {name: "Fracture Case", price: 250},
     {name: "Clutch Case", price: 270},
@@ -94,6 +98,7 @@ var activebot = false;
 var withdrawskins = false;
 var withdrawskins100 = false;
 var withdrawknifes = false;
+var withdrawstickers = false;
 var goodskinsvalue = 0;
 var timerId;
 var timerId3;
@@ -171,6 +176,17 @@ function checkitems(data) {
                     setTimeout(border, 300, data.id, i, "#D4594C");
                     //audio["coin"].play();
                     goodskinsvalue += data.items[i].price;
+                }
+            });
+        }
+        if (withdrawstickers) {
+            stickers.forEach(function(item) {
+                if (data.items[i].name.includes(item)) {
+                    if (!exception && data.items[i].price > 200 && data.items[i].add_price == "0") {
+                        console.log('**************success '+data.items[i].name);
+                        setTimeout(border, 300, data.id, i, "#D4594C");
+                        goodskinsvalue += data.items[i].price;
+                    }
                 }
             });
         }
@@ -486,6 +502,18 @@ function togglewithdrawknifes() {
     localStorage.setItem('activebuttons', JSON.stringify(activebuttons));
 }
 
+function togglewithdrawstickers() {
+    if (withdrawstickers) {
+        withdrawstickers = false;
+    }
+    else {
+        withdrawstickers = true;
+    }
+    $(".payments_category.custom.wstickers").toggleClass("activated");
+    activebuttons[3] = withdrawstickers;
+    localStorage.setItem('activebuttons', JSON.stringify(activebuttons));
+}
+
 function turnon() {
     if (!activebot) {
         if($('.active_p2p_exchange.opened').length == 1) $('.active_p2p_exchange.opened .p2p_confirm').click();
@@ -606,6 +634,7 @@ function turnon() {
         if (activebuttons[0]) togglewithdrawskins();
         if (activebuttons[1]) togglewithdrawskins100();
         if (activebuttons[2]) togglewithdrawknifes();
+        if (activebuttons[3]) togglewithdrawstickers();
         $('.turnon').remove();
         //$("#settbtn").toggleClass("active");
         activebot = true;
@@ -635,6 +664,7 @@ function addblocksP2P() {
         botlng['withdrawskins'] = 'Вывод скинов';
         botlng['withdrawskins100'] = 'Вывод кейсов';
         botlng['withdrawknifes'] = 'Вывод ножей';
+        botlng['withdrawstickers'] = 'Вывод наклеее';
         botlng['history'] = 'История';
     }
 
@@ -655,6 +685,7 @@ function addblocksP2P() {
         botlng['withdrawskins'] = 'Withdraw skins';
         botlng['withdrawskins100'] = 'Withdraw cases';
         botlng['withdrawknifes'] = 'Withdraw knifes';
+        botlng['withdrawstickers'] = 'Withdraw stickers';
         botlng['history'] = 'History';
     }
 
@@ -669,7 +700,7 @@ function addblocksP2P() {
     $('.payments_top ul').append('<li><a id="histbtn" class="payments_category" onclick="P2Phistory();">'+botlng['history']+'</a></li>');
     $('.payments_top').after('<div class="P2Ppanel skins" id="P2Pskins-wrapper" style="display:none;"><div class="payments_top"><ul><li><a class="payments_category" onclick="P2Ploadskins(polygonskins);">'+botlng['reload']+'</a></li><li><a class="payments_category" onclick="sortskins();">'+botlng['sort']+'</a></li></ul></div><div id="P2Pskins"><table id="P2Pskins-table"><thead id="P2Pskins-thead"><tr><th>'+botlng['ord']+'</th><th>'+botlng['name']+'</th><th>'+botlng['polygonprice']+'</th><th>'+botlng['steamprice']+'</th><th>'+botlng['percent']+'</th><th>'+botlng['date']+'</th></tr></thead><tbody id="P2Pskins-tbody"></tbody></table></div></div>');
     $('.payments_top').first().after('<div class="P2Ppanel history" id="P2Pskins-wrapper" style="display:none;"><div class="payments_top"><ul><li><a class="payments_category" onclick="P2Ploadhistory(buyhistory);">'+botlng['reload']+'</a></li></ul></div><div id="P2Pskins"><table id="P2Pskins-table"><thead id="P2Pskins-thead"><tr><th>'+botlng['ord']+'</th><th>'+botlng['name']+'</th><th>'+botlng['polygonprice']+'</th><th>'+botlng['date']+'</th></tr></thead><tbody id="P2Pskins-tbody"></tbody></table></div></div>');
-    $(".payments_top").first().after('<div class="P2Ppanel" id="P2Psettings"><div class="payments_top"><ul><li class="turnon"><a class="payments_category" onclick="turnon();">'+botlng['turnon']+'</a></li><li><a class="payments_category" onclick="remove();">'+botlng['remove']+'</a></li><li><a class="payments_category custom wskin" onclick="togglewithdrawskins();">'+botlng['withdrawskins']+'</a></li><li><a class="payments_category custom w100" onclick="togglewithdrawskins100();">'+botlng['withdrawskins100']+'</a></li><li><a class="payments_category custom wknifes" onclick="togglewithdrawknifes();">'+botlng['withdrawknifes']+'</a></li></ul></div></div>');
+    $(".payments_top").first().after('<div class="P2Ppanel" id="P2Psettings"><div class="payments_top"><ul><li class="turnon"><a class="payments_category" onclick="turnon();">'+botlng['turnon']+'</a></li><li><a class="payments_category" onclick="remove();">'+botlng['remove']+'</a></li><li><a class="payments_category custom wskin" onclick="togglewithdrawskins();">'+botlng['withdrawskins']+'</a></li><li><a class="payments_category custom w100" onclick="togglewithdrawskins100();">'+botlng['withdrawskins100']+'</a></li><li><a class="payments_category custom wknifes" onclick="togglewithdrawknifes();">'+botlng['withdrawknifes']+'</a></li><li><a class="payments_category custom wstickers" onclick="togglewithdrawstickers();">'+botlng['withdrawstickers']+'</a></li></ul></div></div>');
 
 
 
@@ -686,7 +717,7 @@ function addblocksP2P() {
         localStorage.buyhistory = "[]";
     };
     if (localStorage.activebuttons == undefined||NaN) {
-        localStorage.activebuttons = "[true, true, true]";
+        localStorage.activebuttons = "[true, true, true, true]";
     };
 
     polygonskins = JSON.parse(localStorage.getItem('polygonskins'));
