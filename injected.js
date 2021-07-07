@@ -433,6 +433,14 @@ function add10() {
     $('.add10').remove();
 }
 
+function loadbuyprices() {
+    buyprices.forEach(function(item) {
+        if (item.itemid != undefined) {
+            $('[item-id='+item.itemid+']').after('<span class="inventory_item_cost" style="top: 40px; color: #5EB76E;">'+item.price+'</span>');
+        }
+    });
+}
+
 function reloadpage() {
     location.reload();
     audio["connection-lost"].play();
@@ -708,6 +716,8 @@ function addblocksP2P() {
         $('.add10').remove();
         $('#deposit_confrim_window .window_total_coins').after('<a style="cursor:pointer" onclick="add10();" class="window_total_coins add10">+12%</a>');
     })
+    
+    $('.p2p_refresh_button').after('<button type="button" name="button" class="p2p_refresh_button" style="background: darkslategray;" onclic="loadbuyprices();">load prices</button>');
 
 
     if (localStorage.polygonskins == undefined||NaN) {
