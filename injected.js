@@ -435,11 +435,20 @@ function add10() {
 }
 
 function loadbuyprices() {
+    $('.Not.tradable').remove();
+    var aa = $('.inventory_item');
+    for(i=0; i<aa.length; i++) {
+        $(aa[i]).append('<span class="inventory_item_cost custom" onclick="setprice(\''+$(aa[i]).attr('item-id')+'\')">$</span>')
+    }
     buyprices.forEach(function(item) {
         if (item.itemid != undefined) {
-            $('[item-id='+item.itemid+']').after('<span class="inventory_item_cost custom">'+item.price+'</span>');
+            $('[item-id='+item.itemid+']').append('<span class="inventory_item_cost custom" onclick="setprice(\''+item.itemid+'\')>'+item.price+'</span>');
         }
     });
+}
+
+function setprice() {
+    audio["connection-lost"].play();
 }
 
 function reloadpage() {
