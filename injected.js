@@ -436,13 +436,14 @@ function add10() {
 
 function loadbuyprices() {
     $('.Not.tradable').remove();
+    $('.inventory_item_cost.custom').remove();
     var aa = $('.inventory_item');
     for(i=0; i<aa.length; i++) {
         $(aa[i]).append('<span class="inventory_item_cost custom" onclick="setprice(\''+$(aa[i]).attr('item-id')+'\')">$</span>')
     }
     buyprices.forEach(function(item) {
         if (item.itemid != undefined) {
-            $('[item-id='+item.itemid+']').append('<span class="inventory_item_cost custom" onclick="setprice(\''+item.itemid+'\')>'+item.price+'</span>');
+            $('[item-id='+item.itemid+']').append('<span class="inventory_item_cost custom" onclick="setprice(\''+item.itemid+'\')">'+item.price+'</span>');
         }
     });
 }
@@ -469,6 +470,7 @@ async function setprice(itemids) {
         })
       buyprices.push({itemid:itemids, price:stprice});
       loadbuyprices();
+      localStorage.setItem('buyprices', JSON.stringify(buyprices));
     }
 }
 
