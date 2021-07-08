@@ -447,8 +447,28 @@ function loadbuyprices() {
     });
 }
 
-function setprice() {
-    audio["connection-lost"].play();
+function setprice(itemids) {
+    var { value: stprice } = await Swal.fire({
+      title: 'Write the bought price',
+      input: 'text',
+      showCancelButton: true,
+      inputValidator: (value) => {
+        if (!value) {
+          return 'You need to write something!'
+        }
+      }
+    })
+
+    if (stprice) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your price has been saved',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      buyprice.push({itemid:itemids, price:stprice});
+    }
 }
 
 function reloadpage() {
