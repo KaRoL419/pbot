@@ -443,7 +443,7 @@ function loadbuyprices() {
     }
     buyprices.forEach(function(item) {
         if (item.itemid != undefined) {
-            $('[item-id='+item.itemid+']').append('<span class="inventory_item_cost custom" onclick="setprice(\''+item.itemid+'\')">'+item.price+'</span>');
+            $('[item-id='+item.itemid+' .inventory_item_cost.custom]').text(item.price);
         }
     });
 }
@@ -469,7 +469,7 @@ async function setprice(itemids) {
           timer: 1000
         })
       buyprices.push({itemid:itemids, price:stprice});
-      loadbuyprices();
+      $('[item-id='+itemids+' .inventory_item_cost.custom]').text(stprice);
       localStorage.setItem('buyprices', JSON.stringify(buyprices));
     }
 }
