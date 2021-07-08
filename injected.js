@@ -467,7 +467,8 @@ async function setprice(itemids) {
           showConfirmButton: false,
           timer: 1000
         })
-      buyprice.push({itemid:itemids, price:stprice});
+      buyprices.push({itemid:itemids, price:stprice});
+      loadbuyprices();
     }
 }
 
@@ -668,6 +669,7 @@ function turnon() {
             SOCKET.on('connect_timeout', function() {reloadpage()});
             SOCKET.on('disconnect', function() {reloadpage()});
             link = 'deposit';
+            loadbuyprices();
         }
         if (activebuttons[0]) togglewithdrawskins();
         if (activebuttons[1]) togglewithdrawskins100();
