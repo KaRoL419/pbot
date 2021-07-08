@@ -91,6 +91,7 @@ var steamskins = [];
 var buyhistory = [];
 var buyhistorytemp = [];
 var activebuttons = [];
+var buyprices = [];
 var skinsstatus = false;
 var histstatus = false;
 var activetrade = false;
@@ -436,7 +437,7 @@ function add10() {
 function loadbuyprices() {
     buyprices.forEach(function(item) {
         if (item.itemid != undefined) {
-            $('[item-id='+item.itemid+']').after('<span class="inventory_item_cost" style="top: 40px; color: #5EB76E;">'+item.price+'</span>');
+            $('[item-id='+item.itemid+']').after('<span class="inventory_item_cost custom">'+item.price+'</span>');
         }
     });
 }
@@ -717,7 +718,7 @@ function addblocksP2P() {
         $('#deposit_confrim_window .window_total_coins').after('<a style="cursor:pointer" onclick="add10();" class="window_total_coins add10">+12%</a>');
     })
     
-    $('.p2p_refresh_button').after('<button type="button" name="button" class="p2p_refresh_button" style="background: darkslategray;" onclic="loadbuyprices();">load prices</button>');
+    $('.p2p_refresh_button').after('<button type="button" name="button" class="loadbuyprices" onclick="loadbuyprices();">load prices</button>');
 
 
     if (localStorage.polygonskins == undefined||NaN) {
@@ -729,11 +730,15 @@ function addblocksP2P() {
     if (localStorage.activebuttons == undefined||NaN) {
         localStorage.activebuttons = "[true, true, true, true]";
     };
+    if (localStorage.buyprices == undefined||NaN) {
+        localStorage.buyprices = "[]";
+    };
 
     polygonskins = JSON.parse(localStorage.getItem('polygonskins'));
     steamskins = JSON.parse(localStorage.getItem('steamskins'));
     buyhistory = JSON.parse(localStorage.getItem('buyhistory'));
     activebuttons = JSON.parse(localStorage.getItem('activebuttons'));
+    buyprices = JSON.parse(localStorage.getItem('buyprices'));
 
     setTimeout(turnon, 15000);
 
