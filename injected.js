@@ -447,7 +447,7 @@ function loadbuyprices() {
     });
 }
 
-function setprice(itemids) {
+async function setprice(itemids) {
     var { value: stprice } = await Swal.fire({
       title: 'Write the bought price',
       input: 'text',
