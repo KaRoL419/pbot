@@ -504,6 +504,7 @@ function confirmerror() {
         else $('.window.window_status.window_error.window_warning_wide.opened button').click();
         if ($('p:contains("Error connecting to p2p server. Please reload the page")').length > 0) {reloadpage()};
     }
+    if ($('button:contains("No, thanks")').length > 0) {$('button:contains("No, thanks")').click()};
     if($('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://csgopolygon.gg/P2PWithdraw.php") $('.active_p2p_exchange.opened .p2p_confirm').click();
 }
 
