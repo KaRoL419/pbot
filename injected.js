@@ -81,7 +81,8 @@ var skinsexception = [
     "Gut Knife | Doppler",
     "Gut Knife | Lore",
     "Gut Knife | Gamma Doppler",
-    "Gut Knife | Slaughter (Factory New)"
+    "Gut Knife | Slaughter (Factory New)",
+    "Bowie Knife | Scorched (Field-Tested)"
 ];
 
 
