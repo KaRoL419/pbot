@@ -82,7 +82,10 @@ var skinsexception = [
     "Gut Knife | Lore",
     "Gut Knife | Gamma Doppler",
     "Gut Knife | Slaughter (Factory New)",
-    "Bowie Knife | Scorched (Field-Tested)"
+    "Bowie Knife | Scorched (Field-Tested)",
+    "2020 RMR Contenders",
+    "2020 RMR Challengers",
+    "2020 RMR Legends"
 ];
 
 
