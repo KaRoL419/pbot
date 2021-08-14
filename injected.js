@@ -143,14 +143,15 @@ function checkitems(data) {
         });
         */
         
+        skinsexception.forEach(function(item) {
+            if (data.items[i].name.includes(item)) {
+                exception = true;
+                //newskins[i] = true;
+                //if (data.items.length == 1) {withdraw(data.id);}
+            }
+        });
+        
         if (withdrawskins) {
-            skinsexception.forEach(function(item) {
-                if (data.items[i].name.includes(item)) {
-                    exception = true;
-                    //newskins[i] = true;
-                    //if (data.items.length == 1) {withdraw(data.id);}
-                }
-            });
             skins10.forEach(function(item) {
                 if (data.items[i].name.includes(item)) {
                     if (!exception && data.items[i].price > 50000 && data.items[i].price < 100000 && data.items[i].add_price == "0") {
