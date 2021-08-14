@@ -589,20 +589,35 @@ function turnon() {
             SOCKET.on('connect_timeout', function() {reloadpage()});
             SOCKET.on('disconnect', function() {reloadpage()});
 
-            showWithdraw = function(data) {
+            showWithdraw = function(data, type) {
+                
                 var today = new Date() -7*60*60*1000;
                 today = new Date(today).toJSON().slice(0,10).replace(/-/g,'.');
-                $('#withdraw_sent').find('.total').html(data.amount);
-                $('#withdraw_sent').find('.user-img').attr('src', data.data_sender.avatar);
-                $('#withdraw_sent').find('.user-name').html(data.name_sender);
-                $('#withdraw_sent').find('.user-link').attr('href', 'https://steamcommunity.com/profiles/' + data.data_sender.steamid);
-                $('#withdraw_sent').find('.window_edit_items').html('');
-                if (data.name_sender == 'GLB' || data.data_sender.steamid == '76561198213972163') {
-                    togglewithdrawskins();
-                    togglewithdrawskins100();
-                    window.open('https://xn--80affa3aj0al.xn--80asehdb/#/im?p=@KaRoLMD&name=GLB!!!!!');
-                    //window.open('https://xn--80affa3aj0al.xn--80asehdb/#/im?p=u1243926099_7865724337195838746&name=GLB!!!!!');
+                
+                if(type == 1) {
+                    $('.to_send').show();
+                    $('.to_confirm').hide();
+                } else {
+                    $('.to_confirm').show();
+                    $('.to_send').hide();
                 }
+
+
+                $('#withdraw_sent').find('.total').html(data.amount);
+                if(type == 1) {
+                     $('#withdraw_sent').find('.user-img').show();
+                     $('#withdraw_sent').find('.user-name').show();
+                     $('#withdraw_sent').find('.user-link').show();
+
+                     $('#withdraw_sent').find('.user-img').attr('src', data.data_sender.avatar);
+                     $('#withdraw_sent').find('.user-name').html(data.name_sender);
+                     $('#withdraw_sent').find('.user-link').attr('href', 'https://steamcommunity.com/profiles/' + data.data_sender.steamid);
+                } else {
+                     $('#withdraw_sent').find('.user-img').hide();
+                     $('#withdraw_sent').find('.user-name').hide();
+                     $('#withdraw_sent').find('.user-link').hide();
+                }
+                $('#withdraw_sent').find('.window_edit_items').html('');
                 var items = data.items;
 
                 for (var i = 0; i < items.length; i++) {
@@ -620,10 +635,11 @@ function turnon() {
                         var price = parseInt(item.price + item.price / 100 * item.add_price);
                         if (item.add_price > 0) price = price + ' (+' + item.add_price + '%)';
 
-                        var item_html = item_confirm_tmp.format(price, item.assetid, img, prefix, weapon, skin, wear, '', price);
+                        var item_html = item_confirm_tmp.format(price, item.assetid, img, prefix, weapon, skin, wear, '', price, 'confirm_item');
 
 
                         $('#withdraw_sent').find('.window_edit_items').append($(item_html));
+                        
                         //alert('sdfsdf');
                         console.log("name: "+prefix + ' ' + weapon + ' ' + skin + ' ' + wear + ' price: ' + price + " date: "+today);
                         console.log(item.name)
@@ -632,6 +648,7 @@ function turnon() {
 
                 }
 
+                clearInterval(withdraw_interval);
                 withdraw_end = data.time;
                 var timer = $('#withdraw_sent').find('.timer');
                 withdraw_interval = setInterval(function() {
