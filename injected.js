@@ -481,7 +481,7 @@ async function setprice(itemids) {
 
 function reloadpage() {
     location.reload();
-    audio["connection-lost"].play();
+    //audio["connection-lost"].play();
 }
 
 function remove() {
