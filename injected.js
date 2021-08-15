@@ -298,7 +298,7 @@ function P2Ploadhistory(arr) {
     arr.forEach(function(item) {
         if (item.date == dateh) {totalh += item.price}
             else {
-                $('.history #P2Pskins-tbody').prepend('<tr class="accordion"><td></td><td class="viewmore" onclick="$(\'.panel'+j+'\').toggle(300); $(\'.panel'+j+'\').last().next().toggleClass(\'active\');">'+dateh+' ▼</td><td>total: '+totalh+'</td><td class="deletehistory" onclick="deletehistory(\''+dateh+'\');">Delete</td>');
+                $('.history #P2Pskins-tbody').prepend('<tr class="accordion"><td></td><td class="viewmore" onclick="$(\'.panel'+j+'\').toggle(300); $(\'.panel'+j+'\').first().prev().toggleClass(\'active\');">'+dateh+' ▼</td><td>total: '+totalh+'</td><td class="deletehistory" onclick="deletehistory(\''+dateh+'\');">Delete</td>');
                 dateh = item.date;
                 totalh = item.price;
                 j++;
@@ -306,7 +306,7 @@ function P2Ploadhistory(arr) {
         $('.history #P2Pskins-tbody').prepend('<tr class="panel panel'+j+'" style="display: none"><td>'+i+'</td><td>'+item.name+'</td><td>'+item.price+'</td><td>'+item.date+'</td>');
         i++;
         if (i == arr.length) {
-            $('.history #P2Pskins-tbody').prepend('<tr class="accordion"><td></td><td class="viewmore" onclick="$(\'.panel'+j+'\').toggle(300); $(\'.panel'+j+'\').last().next().toggleClass(\'active\');">'+dateh+' ▼</td><td>total: '+totalh+'</td><td class="deletehistory" onclick="deletehistory();">Delete</td>');
+            $('.history #P2Pskins-tbody').prepend('<tr class="accordion"><td></td><td class="viewmore" onclick="$(\'.panel'+j+'\').toggle(300); $(\'.panel'+j+'\').first().prev().toggleClass(\'active\');">'+dateh+' ▼</td><td>total: '+totalh+'</td><td class="deletehistory" onclick="deletehistory();">Delete</td>');
         }
     });
     $(".loading").toggle();
