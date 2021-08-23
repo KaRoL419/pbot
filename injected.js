@@ -85,7 +85,8 @@ var skinsexception = [
     "Bowie Knife | Scorched (Field-Tested)",
     "Contenders",
     "Challengers",
-    "Legends"
+    "Legends",
+    "Gut Knife | Rust Coat"
 ];
 
 
