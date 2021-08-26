@@ -644,9 +644,11 @@ function turnon() {
                         $('#withdraw_sent').find('.window_edit_items').append($(item_html));
                         
                         //alert('sdfsdf');
-                        console.log("name: "+prefix + ' ' + weapon + ' ' + skin + ' ' + wear + ' price: ' + price + " date: "+today);
-                        console.log(item.name)
-                        buyhistorytemp.push({"nick": nickname, "name": item.name, "price": price, "date": today});
+                        if(type == 1) {
+                            console.log("name: "+prefix + ' ' + weapon + ' ' + skin + ' ' + wear + ' price: ' + price + " date: "+today);
+                            console.log(item.name)
+                            buyhistorytemp.push({"nick": nickname, "name": item.name, "price": price, "date": today});
+                        }
                     }
 
                 }
