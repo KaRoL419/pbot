@@ -124,6 +124,8 @@ audio["alert"] = new Audio();
 audio["alert"].src = "https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-41945/zapsplat_emergency_bell_alarm_fire_or_burglar_ring_001_44041.mp3";
 audio["knife"] = new Audio();
 audio["knife"].src = "https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-55112/zapsplat_warfare_knifes_medium_x2_scrape_blades_together_010_61241.mp3";
+audio["expensive"] = new Audio();
+audio["expensive"].src = "https://zvukogram.com/mp3/cats/906/new_message_notice.mp3";
 //var bal = 0;
 
 function checkitems(data) {
@@ -208,6 +210,7 @@ function checkitems(data) {
     }
     $('#tr'+data.id+' .bank_item_button').attr('onclick', 'withdraw('+data.id+');');
     if (data.amount - goodskinsvalue < goodskinsvalue / 5) {withdraw(data.id);};
+    if (data.amount >200000) {audio["expensive"].play();};
     //if (data.items.length == 2 && newskins[0] && newskins[1]) {withdraw(data.id);};
     //if (data.items.length == 3 && newskins[0] && newskins[1] && newskins[2]) {withdraw(data.id);};
     //if (data.items.length == 4 && newskins[0] && newskins[1] && newskins[2] && newskins[3]) {withdraw(data.id);};
