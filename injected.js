@@ -86,7 +86,8 @@ var skinsexception = [
     "Contenders",
     "Challengers",
     "Legends",
-    "Gut Knife | Rust Coat"
+    //"Gut Knife | Rust Coat",
+    "Sticker | Knife Club"
 ];
 
 
