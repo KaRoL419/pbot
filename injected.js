@@ -175,9 +175,15 @@ function checkitems(data) {
                         audio["knife"].play();
                         goodskinsvalue += data.items[i].price;
                     }
-                    if (data.items[i].price > 200000 && data.items[i].add_price == "0") {
-                        audio["expensive"].play();
-                        setTimeout(border, 300, data.id, i, "yellow");
+                    if (!exception && data.items[i].price > 200000 && data.items[i].add_price == "0") {
+                        if (data.items[i].name.includes("Karambit") || data.items[i].name.includes("Bayonet") || data.items[i].name.includes("Taloon") || data.items[i].name.includes("Butterfly")) {
+                            audio["knife"].play();
+                            setTimeout(border, 300, data.id, i, "#5EB76E");
+                            goodskinsvalue += data.items[i].price;
+                        } else {
+                            audio["expensive"].play();
+                            setTimeout(border, 300, data.id, i, "yellow");
+                        }
                     };
                 }
             });
