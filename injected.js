@@ -170,7 +170,7 @@ function checkitems(data) {
         if (withdrawknifes) {
             knives.forEach(function(item) {
                 if (data.items[i].name.includes(item)) {
-                    if (!exception && data.items[i].price <= 200000 && data.items[i].add_price == "0") {
+                    if (!exception && data.items[i].price <= 200000 && data.items[i].price >= 20000 && data.items[i].add_price == "0") {
                         console.log('**************success '+data.items[i].name);
                         setTimeout(border, 300, data.id, i, "#5EB76E");
                         audio["knife"].play();
