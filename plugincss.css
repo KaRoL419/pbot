@@ -284,4 +284,5 @@ body .deposit_cart_row {
 .inventory_item_cost.custom {
     top: 40px;
     color: #5EB76E;
+    z-index: 999;
 }
