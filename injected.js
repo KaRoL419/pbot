@@ -507,7 +507,7 @@ function unexpected() {
 }
 
 function confirmerror() {
-    if ($('.window.window_status.window_error.window_warning_wide.opened button').length > 0) {
+    if ($('.window.window_status.window_warning_wide.opened button').length > 0) {
         if ($('.opened.window_error.window_warning_wide').text() == "ErrorSession expired. Please log in and try again.OK" && loginerror == false) {
             $('.window.window_status.opened.window_notify.window_warning_wide .cancel').click()
             $.ajax({
