@@ -591,10 +591,10 @@ function turnon() {
               }
             });
         }, 120000 );
-        if ($('.user .details a').length > 0) {
-            nickname = $('.user .details a').text();
-            localStorage.nickname = nickname;
-        }
+        //if ($('.user .details a').length > 0) {
+        //    nickname = $('.user .details a').text();
+        //    localStorage.nickname = nickname;
+        //}
         if(window.location.href == "https://csgopolygon.gg/P2PWithdraw.php" || window.location.href == "https://csgopolygon.gg/P2PWithdraw.php#" || window.location.href == "https://skinout.gg/market.php"  || window.location.href == "https://plg.bet/P2PWithdraw.php"  || window.location.href == "https://plg.bet/P2PWithdraw.php#") {
             SOCKET.on('new_trade', function(data) { checkitems(data) });
             SOCKET.on('trade_sent_receiver', function(data) { opentrade(data) });
