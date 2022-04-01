@@ -89,7 +89,7 @@ var skinsexception = [
     //"Gut Knife | Rust Coat",
     "Sticker | Knife Club",
     "Bayonet | Doppler",
-    "StatTrak™ Talon Knife | Slaughter (Minimal Wear)"
+    "Talon Knife | Slaughter (Minimal Wear)"
 ];
 
 
