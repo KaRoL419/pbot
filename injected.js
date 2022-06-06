@@ -91,7 +91,8 @@ var skinsexception = [
     "Bayonet | Doppler",
     "Talon Knife | Slaughter (Minimal Wear)",
     "Bayonet | Gamma Doppler",
-    "Shadow Daggers | Gamma Doppler"
+    "Shadow Daggers | Gamma Doppler",
+    "Doppler"
 ];
 
 
