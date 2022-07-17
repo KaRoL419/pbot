@@ -582,6 +582,16 @@ function togglewithdrawstickers() {
     localStorage.setItem('activebuttons', JSON.stringify(activebuttons));
 }
 
+function chprice(i) {
+	$(".skins_row_item_unit:nth-child("+i+") .skins_item_button.stop").click();
+	setTimeout(function() {
+		$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val(+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() + 10);
+	}, 1000)
+	setTimeout(function() {
+		$(".skins_row_item_unit:nth-child("+i+") .skins_item_button.start").click();
+	}, 1000)
+}
+
 function turnon() {
     if (!activebot) {
         if($('.active_p2p_exchange.opened').length == 1) $('.active_p2p_exchange.opened .p2p_confirm').click();
@@ -719,6 +729,16 @@ function turnon() {
             link = 'deposit';
             loadbuyprices();
         }
+        
+        if(window.location.href == "https://plg.bet/withdraw/csgo_pro" || window.location.href == "https://plg.bet/ru/withdraw/csgo_pro") {
+            for (var i = 1; i <= $(".skins_row_item_unit").length; i++) {
+                if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
+                    $(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px red");
+                    $(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
+                }
+            }
+        }
+        
         if (activebuttons[0]) togglewithdrawskins();
         if (activebuttons[1]) togglewithdrawskins100();
         if (activebuttons[2]) togglewithdrawknifes();
