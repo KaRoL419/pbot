@@ -585,7 +585,7 @@ function togglewithdrawstickers() {
 function chprice(i) {
 	$(".skins_row_item_unit:nth-child("+i+") .skins_item_button.stop").click();
 	setTimeout(function() {
-		$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val(+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() + 1);
+		$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val(+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() + 5);
 	}, 1000)
 	setTimeout(function() {
 		$(".skins_row_item_unit:nth-child("+i+") .skins_item_button.start").click();
