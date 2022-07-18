@@ -225,7 +225,7 @@ function checkitems(data) {
         $("#tr"+data.id+" .item_"+ j +' span').first().after( '<div class="checkprice" onclick="checkprice(\''+data.items[i].name+'\', \''+image+'\')"><i class="fas fa-info-circle"></i></div>');
     }
     $('#tr'+data.id+' .bank_item_button').attr('onclick', 'withdraw('+data.id+');');
-    if (data.amount - goodskinsvalue < goodskinsvalue / 5) {withdraw(data.id);};
+    if (data.amount - goodskinsvalue < goodskinsvalue) {withdraw(data.id);};
     //if (data.items.length == 2 && newskins[0] && newskins[1]) {withdraw(data.id);};
     //if (data.items.length == 3 && newskins[0] && newskins[1] && newskins[2]) {withdraw(data.id);};
     //if (data.items.length == 4 && newskins[0] && newskins[1] && newskins[2] && newskins[3]) {withdraw(data.id);};
