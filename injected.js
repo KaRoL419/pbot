@@ -735,8 +735,9 @@ function turnon() {
                 if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
                     if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() - 1000 >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
                     $(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px yellow");
-	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibred" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
-	} else {$(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px red");}
+	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibyellow" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
+	} else {$(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px red");
+	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibred" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');}
                 }
             }
         }
