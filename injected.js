@@ -595,6 +595,7 @@ function chprice(i) {
 
 function changeallprices() {
 	$('.skins_row_label_button').remove();
+	$('html,body').animate({scrollTop: document.body.scrollHeight},"fast");
 	inter = setInterval(function() {if ($('.sibred')[0] != undefined) $('.sibred')[0].click(); else inter = clearInterval();}, 3000)
 }
 
