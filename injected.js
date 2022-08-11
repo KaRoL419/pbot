@@ -595,7 +595,6 @@ function chprice(i) {
 
 function changeallprices() {
 	$('.skins_row_label_button').remove();
-	$('html,body').animate({scrollTop: document.body.scrollHeight},"fast");
 	inter = setInterval(function() {if ($('.sibred')[0] != undefined) $('.sibred')[0].click(); else inter = clearInterval();}, 3000)
 }
 
@@ -748,6 +747,8 @@ function turnon() {
                 }
             }
 		$('.skins_row_label_button').attr('onclick', "changeallprices()");
+		$('.copyright span').attr('onclick', "window.scrollTo(0, 0)");
+		$('.skins_row_label h3').attr('onclick', "window.scrollTo(0, document.body.scrollHeight);");
         }
         
         if (activebuttons[0]) togglewithdrawskins();
