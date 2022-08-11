@@ -748,6 +748,7 @@ function turnon() {
             }
 		$('.skins_row_label_button').attr('onclick', "changeallprices()");
 		$('.copyright span').attr('onclick', "window.scrollTo(0, 0)");
+		$('.whoop.rmz-static ').attr('onclick', "window.scrollTo(0, 0)");
 		$('.skins_row_label h3').attr('onclick', "window.scrollTo(0, document.body.scrollHeight);");
         }
         
