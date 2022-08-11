@@ -747,9 +747,6 @@ function turnon() {
                 }
             }
 		$('.skins_row_label_button').attr('onclick', "changeallprices()");
-		$('.copyright span').attr('onclick', "window.scrollTo(0, 0)");
-		$('.whoop.rmz-static ').attr('onclick', "window.scrollTo(0, 0)");
-		$('.skins_row_label h3').attr('onclick', "window.scrollTo(0, document.body.scrollHeight);");
         }
         
         if (activebuttons[0]) togglewithdrawskins();
@@ -814,7 +811,10 @@ function addblocksP2P() {
     $("body").append('<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>');
     $("head").append('<style>.swal2-popup{font-size: 1.6rem !important;}.onoffswitch {margin-bottom: 8px;} #crash_auto_cashout {border-radius: 6px;} .crash_input {margin-bottom: 10px} .crash-fair .crash-fair-body{height: 75px; width: 65%;} .crash-fair-content {padding-top:10px} .crash-fair-content .crash-fair-info {margin-left: 20px} .histunit{padding:5px 10px;margin:3px;border-radius:5px;display:inline-block;border:1px solid gray;} .green{color:#6af549;} .dgreen{color:#3e900d;} .red{color:#f54949;}</style>');
     $("head").append('<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>');
-
+	
+	$('.copyright span').attr('onclick', "window.scrollTo(0, 0)");
+	$('.whoop.rmz-static ').attr('onclick', "window.scrollTo(0, 0)");
+	$('.skins_row_label h3').attr('onclick', "window.scrollTo(0, document.body.scrollHeight);");
 
     $(".payments_top ul").append('<li><a id="settbtn" class="payments_category active" onclick="P2Psettings();">'+botlng['settings']+'</a></li>')
     $('.payments_top ul').append('<li><a id="skinbtn" class="payments_category" onclick="P2Pskins();">'+botlng['prices']+'</a></li>');
