@@ -747,6 +747,7 @@ function turnon() {
                 }
             }
 		$('.skins_row_label_button').attr('onclick', "changeallprices()");
+		$('.whoop.rmz-static ').attr('onclick', "window.scrollTo(0, 0)");
         }
         
         if (activebuttons[0]) togglewithdrawskins();
@@ -813,7 +814,6 @@ function addblocksP2P() {
     $("head").append('<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>');
 	
 	$('.copyright span').attr('onclick', "window.scrollTo(0, 0)");
-	$('.whoop.rmz-static ').attr('onclick', "window.scrollTo(0, 0)");
 	$('.skins_row_label h3').attr('onclick', "window.scrollTo(0, document.body.scrollHeight);");
 
     $(".payments_top ul").append('<li><a id="settbtn" class="payments_category active" onclick="P2Psettings();">'+botlng['settings']+'</a></li>')
