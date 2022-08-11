@@ -118,6 +118,7 @@ var nickname;
 var link = 'withdraw';
 var loginerror = false;
 var audio = {};
+var inter = 0;
 audio["coin"] = new Audio();
 audio["coin"].src = "https://www.soundjay.com/misc/sounds/coins-to-table-2.mp3";
 audio["connection-lost"] = new Audio();
@@ -592,6 +593,11 @@ function chprice(i) {
 	}, 1000)
 }
 
+function changeallprices() {
+	$('.skins_row_label_button').remove();
+	inter = setInterval(function() {if ($('.sibred')[0] != undefined) $('.sibred')[0].click(); else inter = clearInterval();}, 3000)
+}
+
 function turnon() {
     if (!activebot) {
         if($('.active_p2p_exchange.opened').length == 1) $('.active_p2p_exchange.opened .p2p_confirm').click();
@@ -740,6 +746,7 @@ function turnon() {
 	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibred" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');}
                 }
             }
+		$('.skins_row_label_button').attr('onclick', "changeallprices()");
         }
         
         if (activebuttons[0]) togglewithdrawskins();
