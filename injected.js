@@ -92,7 +92,8 @@ var skinsexception = [
     "Talon Knife | Slaughter (Minimal Wear)",
     "Bayonet | Gamma Doppler",
     "Shadow Daggers | Gamma Doppler",
-    "Doppler"
+    "Doppler",
+    "StatTrak Butterfly Knife | Rust Coat (Battle-Scarred)"
 ];
 
 
