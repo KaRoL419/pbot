@@ -533,7 +533,7 @@ function confirmerror() {
     if ($('button:contains("No, thanks")').length > 0) {$('button:contains("No, thanks")').click()};
     if ($('button:contains("Нет, спасибо")').length > 0) {$('button:contains("Нет, спасибо")').click()};
     if ($('p:contains("Error connecting to p2p server. Please reload the page (transport close)")').length > 0) {reloadpage()};
-    if($('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://plg.bet/ru/withdraw/csgo" || $('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://skinout.gg/market.php" || $('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://plg.bet/withdraw/csgo") $('.active_p2p_exchange.opened .p2p_confirm').click();
+    if($('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://plg2x.com/ru/withdraw/csgo" || $('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://skinout.gg/market.php" || $('.active_p2p_exchange.opened').length == 1 && window.location.href == "https://plg2x.com/withdraw/csgo") $('.active_p2p_exchange.opened .p2p_confirm').click();
 }
 
 function togglewithdrawskins() {
@@ -618,7 +618,7 @@ function turnon() {
         //    nickname = $('.user .details a').text();
             nickname = localStorage.nickname;
         //}
-        if(window.location.href == "https://csgopolygon.gg/P2PWithdraw.php" || window.location.href == "https://csgopolygon.gg/P2PWithdraw.php#" || window.location.href == "https://skinout.gg/market.php"  || window.location.href == "https://plg.bet/withdraw/csgo"  || window.location.href == "https://plg.bet/ru/withdraw/csgo") {
+        if(window.location.href == "https://csgopolygon.gg/P2PWithdraw.php" || window.location.href == "https://csgopolygon.gg/P2PWithdraw.php#" || window.location.href == "https://skinout.gg/market.php"  || window.location.href == "https://plg2x.com/withdraw/csgo"  || window.location.href == "https://plg2x.com/ru/withdraw/csgo") {
             SOCKET.on('new_trade', function(data) { checkitems(data) });
             SOCKET.on('trade_sent_receiver', function(data) { opentrade(data) });
             SOCKET.on('trade_complete_receiver', function() { setTimeout(confirmbuttoncomplete, 100) });
@@ -700,7 +700,7 @@ function turnon() {
 
             }
         }
-        if(window.location.href == "https://csgopolygon.gg/P2PDeposit.php" || window.location.href == "https://csgopolygon.gg/P2PDeposit.php#" || window.location.href == "https://skinout.gg/inventory.php" || window.location.href == "https://plg.bet/deposit/csgo" || window.location.href == "https://plg.bet/ru/deposit/csgo") {
+        if(window.location.href == "https://csgopolygon.gg/P2PDeposit.php" || window.location.href == "https://csgopolygon.gg/P2PDeposit.php#" || window.location.href == "https://skinout.gg/inventory.php" || window.location.href == "https://plg2x.com/deposit/csgo" || window.location.href == "https://plg2x.com/ru/deposit/csgo") {
             SOCKET.on('trade_accepted', function(data) {
                 if ($('.sound.off').length == 0) audio["alert"].play();
                 if ($('.send.ready_to_trade').length != 0) {
@@ -737,7 +737,7 @@ function turnon() {
             loadbuyprices();
         }
         
-        if(window.location.href == "https://plg.bet/withdraw/csgo_pro" || window.location.href == "https://plg.bet/ru/withdraw/csgo_pro") {
+        if(window.location.href == "https://plg2x.com2x.com/withdraw/csgo_pro" || window.location.href == "https://plg2x.com/ru/withdraw/csgo_pro") {
             for (var i = 1; i <= $(".skins_row_item_unit").length; i++) {
                 if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
                     if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() - 1000 >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
