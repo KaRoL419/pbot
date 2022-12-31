@@ -737,7 +737,7 @@ function turnon() {
             loadbuyprices();
         }
         
-        if(window.location.href == "https://plg2x.com2x.com/withdraw/csgo_pro" || window.location.href == "https://plg2x.com/ru/withdraw/csgo_pro") {
+        if(window.location.href == "https://plg2x.com/withdraw/csgo_pro" || window.location.href == "https://plg2x.com/ru/withdraw/csgo_pro") {
             for (var i = 1; i <= $(".skins_row_item_unit").length; i++) {
                 if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
                     if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() - 1000 >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
