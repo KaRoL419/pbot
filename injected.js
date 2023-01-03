@@ -614,7 +614,7 @@ function turnon() {
               }
             });
         }, 120000 );
-	setTimeout("reloadpage()", 3600000);
+	setTimeout("reloadpage()", 1800000);
         //if ($('.user .details a').length > 0) {
         //    nickname = $('.user .details a').text();
             nickname = localStorage.nickname;
