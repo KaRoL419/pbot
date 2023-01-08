@@ -751,7 +751,8 @@ function turnon() {
 		    if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() +6 <= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
 			    $(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px green");
 	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibgreen" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
-            }
+		    }
+		}
 		$('.skins_row_label_button').attr('onclick', "changeallprices()");
 		$('.whoop.rmz-static ').attr('onclick', "window.scrollTo(0, 0)");
         }
