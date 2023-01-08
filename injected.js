@@ -120,6 +120,7 @@ var link = 'withdraw';
 var loginerror = false;
 var audio = {};
 var inter = 0;
+var inter2 = 0;
 audio["coin"] = new Audio();
 audio["coin"].src = "https://www.soundjay.com/misc/sounds/coins-to-table-2.mp3";
 audio["connection-lost"] = new Audio();
@@ -597,7 +598,7 @@ function chprice(i) {
 function changeallprices() {
 	$('.skins_row_label_button').remove();
 	inter = setInterval(function() {if ($('.sibred')[0] != undefined) $('.sibred')[0].click(); else inter = clearInterval();}, 3000);
-	inter2 = setInterval(function() {if ($('.sibgreen')[0] != undefined) $('.sibgreen')[0].click(); else inter = clearInterval();}, 3000);
+	inter2 = setInterval(function() {if ($('.sibgreen')[0] != undefined) $('.sibgreen')[0].click(); else inter2 = clearInterval();}, 3000);
 }
 
 function turnon() {
@@ -743,16 +744,17 @@ function turnon() {
             for (var i = 1; i <= $(".skins_row_item_unit").length; i++) {
                 if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
                     if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() - 1000 >= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
-                    $(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px yellow");
-	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibyellow" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
-	} else {$(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px red");
-	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibred" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');}
-                }
-		    if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() + 6 <= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
-			    $(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px green");
-	$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibgreen" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
-		    }
+                    	$(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px yellow");
+			$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibyellow" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
+		    } else {$(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px red");
+			$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibred" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
+                    }
 		}
+		if (+$(".skins_row_item_unit:nth-child("+i+") .skins_item_requests_list li:nth-child(2) span:nth-child(1)").html() + 6 <= +$(".skins_row_item_unit:nth-child("+i+") .skins_item_cost input").val()) {
+			$(".skins_row_item_unit:nth-child("+i+")").css("box-shadow", "inset 0px 0px 0px 5px green");
+			$(".skins_row_item_unit:nth-child("+i+") .skins_item_actions").append('<button class="skins_item_button sibgreen" style="height: 35px; background: cadetblue;" onclick = "chprice('+i+')"><span style="line-height: unset; padding: 0;">change price</span></button>');
+		    }
+	    }
 		$('.skins_row_label_button').attr('onclick', "changeallprices()");
 		$('.whoop.rmz-static ').attr('onclick', "window.scrollTo(0, 0)");
         }
