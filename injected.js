@@ -93,7 +93,8 @@ var skinsexception = [
     "Bayonet | Gamma Doppler",
     "Shadow Daggers | Gamma Doppler",
     "Doppler",
-    "StatTrak Butterfly Knife | Rust Coat (Battle-Scarred)"
+    "StatTrak Butterfly Knife | Rust Coat (Battle-Scarred)",
+    "Cluj-Napoca"
 ];
 
 
