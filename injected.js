@@ -185,7 +185,7 @@ function checkitems(data) {
                         audio["knife"].play();
                         goodskinsvalue += data.items[i].price;
                     }
-                    if (!exception && data.items[i].price > 200000 && data.items[i].price <= 1000000 && data.items[i].add_price == "0") {
+                    if (!exception && data.items[i].price > 200000 && data.items[i].price <= 300000 && data.items[i].add_price == "0") {
                         if (data.items[i].name.includes("Karambit") || data.items[i].name.includes("Bayonet") || data.items[i].name.includes("Talon") || data.items[i].name.includes("Butterfly")) {
                             audio["knife"].play();
                             setTimeout(border, 300, data.id, i, "#5EB76E");
