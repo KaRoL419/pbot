@@ -631,6 +631,8 @@ function turnon() {
             SOCKET.on('connect_error', function() {reloadpage()});
             SOCKET.on('connect_timeout', function() {reloadpage()});
             SOCKET.on('disconnect', function() {reloadpage()});
+		
+	    remove();
 
             showWithdraw = function(data, type) {
                 
