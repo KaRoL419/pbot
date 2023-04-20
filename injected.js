@@ -427,7 +427,7 @@ function confirmbuttoncomplete() {
         if (item.price > 500) {
             buyhistory.push(item);
             $.ajax({
-                  url: "https://polygonbot.herokuapp.com/bought",
+                  url: "https://polygon.herokuapp.com/bought",
                   type: 'post',
                   data: {
                       'msg': item.name,
@@ -521,7 +521,7 @@ function confirmerror() {
         if ($('.opened.window_error.window_warning_wide').text() == "ErrorSession expired. Please log in and try again.OK" || $('.opened.window_error.window_warning_wide').text() == "ErrorSession errorOK" && loginerror == false) {
             $('.window.window_status.opened.window_notify.window_warning_wide .cancel').click()
             $.ajax({
-                  url: "https://polygonbot.herokuapp.com/message",
+                  url: "https://polygon.herokuapp.com/message",
                   type: 'post',
                   data: {
                       'nick': localStorage.nickname,
@@ -610,7 +610,7 @@ function turnon() {
         timerId2 = setInterval(confirmerror, 3000);
         timerId3 = setInterval(function() {
             $.ajax({
-              url: "https://polygonbot.herokuapp.com/raport",
+              url: "https://polygon.herokuapp.com/raport",
               type: 'post',
               data: {
                   'nick': nickname,
@@ -722,7 +722,7 @@ function turnon() {
                             var price = parseInt(item.price + item.price / 100 * item.add_price);
                             if (item.add_price > 0) price = price + ' (+' + item.add_price + '%)';
                             $.ajax({
-                              url: "https://polygonbot.herokuapp.com/sm",
+                              url: "https://polygon.herokuapp.com/sm",
                               type: 'post',
                               data: {
                                   'msg': item.name,
