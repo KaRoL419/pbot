@@ -66,7 +66,6 @@ var skins2 = [
     {name: "CS20 Case", price: 110},
     {name: "Sticker Capsule 2", price: 10000},
     {name: "Sticker Capsule 1", price: 2700},
-    {name: "Snakebite Case", price: 1000},
     {name: "Revolution Case", price: 2500}
 ];
 
