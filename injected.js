@@ -39,9 +39,7 @@ var skins10 = [
     "M4A1-S | Master Piece",
     "USP-S | Kill Confirmed",
     "USP-S | Orion",
-    "USP-S | Neo-Noir",
-    "(Holo) | 2020 RMR",
-    "(Foil) | 2020 RMR"
+    "USP-S | Neo-Noir"
 ];
 
 var knives = [
