@@ -50,10 +50,7 @@ var knives = [
     "Karambit",
     "Bayonet",
     "Gloves",
-    "Hand Wraps",
-    "Natus Vincere (Gold) | 2020 RMR",
-    "TYLOO (Gold) | 2020 RMR",
-    "FaZe (Gold) | 2020 RMR"
+    "Hand Wraps"
 ];
 
 var stickers = [
