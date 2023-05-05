@@ -446,12 +446,12 @@ function confirmbuttoncanceled() {
 }
 
 function add10() {
-    $("#deposit_confrim_window .inventory_item").attr('add-price', 15);
+    $("#deposit_confrim_window .inventory_item").attr('add-price', 30);
     for (var i = 0; i < $("#deposit_confrim_window .inventory_item .inventory_item_cost").length; i++) {
         var item = $("#deposit_confrim_window .inventory_item .inventory_item_cost")[i];
         var price = +$("#deposit_confrim_window .inventory_item .inventory_item_cost")[i].innerText;
-        price = parseInt(price + price / 100 * 15);
-        price = price + ' (+15%)';
+        price = parseInt(price + price / 100 * 30);
+        price = price + ' (+30%)';
         $(item).html(price);
     }
     calculate_deposit_price();
@@ -835,7 +835,7 @@ function addblocksP2P() {
 
     $('#deposit_btn').on('click', function() {
         $('.add10').remove();
-        $('#deposit_confrim_window .window_total_coins').after('<a style="cursor:pointer" onclick="add10();" class="window_total_coins add10">+15%</a>');
+        $('#deposit_confrim_window .window_total_coins').after('<a style="cursor:pointer" onclick="add10();" class="window_total_coins add10">+30%</a>');
     })
     
     $('.p2p_refresh_button').after('<button type="button" name="button" class="loadbuyprices" onclick="loadbuyprices();">load prices</button>');
