@@ -836,7 +836,7 @@ function addblocksP2P() {
 
     $('#deposit_btn').on('click', function() {
         $('.add10').remove();
-        $('#deposit_confrim_window .window_total_coins').after('<a style="cursor:pointer" onclick="add10();" class="window_total_coins add10">add%</a><input class="window_total_coins add10" value="30"');
+        $('#deposit_confrim_window .window_total_coins').after('<a style="cursor:pointer" onclick="add10();" class="window_total_coins add10">add%</a><input class="window_total_coins add10" value="30">');
     })
     
     $('.p2p_refresh_button').after('<button type="button" name="button" class="loadbuyprices" onclick="loadbuyprices();">load prices</button>');
