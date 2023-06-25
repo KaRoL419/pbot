@@ -446,7 +446,7 @@ function confirmbuttoncanceled() {
 }
 
 function add10() {
-    var percent = $("input.add10").val();
+    var percent = +$("input.add10").val();
     $("#deposit_confrim_window .inventory_item").attr('add-price', percent);
     for (var i = 0; i < $("#deposit_confrim_window .inventory_item .inventory_item_cost").length; i++) {
         var item = $("#deposit_confrim_window .inventory_item .inventory_item_cost")[i];
