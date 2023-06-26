@@ -452,7 +452,7 @@ function add10() {
         var item = $("#deposit_confrim_window .inventory_item .inventory_item_cost")[i];
         var price = +$("#deposit_confrim_window .inventory_item .inventory_item_cost")[i].innerText;
         price = parseInt(price + price / 100 * percent);
-        price = price + ' (+'+percent+'30%)';
+        price = price + ' (+'+percent+'%)';
         $(item).html(price);
     }
     calculate_deposit_price();
