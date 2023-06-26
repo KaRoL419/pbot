@@ -90,7 +90,8 @@ var skinsexception = [
     "Doppler",
     "StatTrak Butterfly Knife | Rust Coat (Battle-Scarred)",
     "Cluj-Napoca",
-    "Gut Knife | Night"
+    "Gut Knife | Night",
+    "USP-S | Orion (Factory New)"
 ];
 
 
