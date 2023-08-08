@@ -71,27 +71,13 @@ var skins2 = [
 
 var skinsexception = [
     "Sealed Graffiti",
-    "Navaja Knife | Tiger Tooth (Minimal Wear)",
-    "Stiletto Knife | Boreal Forest (Field-Tested)",
-    "Gut Knife | Doppler",
-    "Gut Knife | Lore",
-    "Gut Knife | Gamma Doppler",
-    "Gut Knife | Slaughter (Factory New)",
-    "Bowie Knife | Scorched (Field-Tested)",
     "Contenders",
     "Challengers",
     "Legends",
     //"Gut Knife | Rust Coat",
     "Sticker | Knife Club",
-    "Bayonet | Doppler",
-    "Talon Knife | Slaughter (Minimal Wear)",
-    "Bayonet | Gamma Doppler",
-    "Shadow Daggers | Gamma Doppler",
     "Doppler",
-    "StatTrak Butterfly Knife | Rust Coat (Battle-Scarred)",
     "Cluj-Napoca",
-    "Gut Knife | Night",
-    "USP-S | Orion (Factory New)",
     "StatTrak"
 ];
 
@@ -183,15 +169,9 @@ function checkitems(data) {
                         audio["knife"].play();
                         goodskinsvalue += data.items[i].price;
                     }
-                    if (!exception && data.items[i].price > 200000 && data.items[i].price <= 300000 && data.items[i].add_price == "0") {
-                        if (data.items[i].name.includes("Karambit") || data.items[i].name.includes("Bayonet") || data.items[i].name.includes("Talon") || data.items[i].name.includes("Butterfly")) {
-                            audio["knife"].play();
-                            setTimeout(border, 300, data.id, i, "#5EB76E");
-                            goodskinsvalue += data.items[i].price;
-                        } else {
-                            audio["expensive"].play();
-                            setTimeout(border, 300, data.id, i, "yellow");
-                        }
+                    if (!exception && data.items[i].price > 20000 && data.items[i].price <= 500000 && data.items[i].add_price <= "10") {
+                        audio["expensive"].play();
+                        setTimeout(border, 300, data.id, i, "yellow");
                     };
                 }
             });
