@@ -169,7 +169,7 @@ function checkitems(data) {
                         audio["knife"].play();
                         goodskinsvalue += data.items[i].price;
                     }
-                    if (!exception && data.items[i].price > 20000 && data.items[i].price <= 500000 && data.items[i].add_price <= "10") {
+                    if (!exception && data.items[i].price > 20000 && data.items[i].price <= 500000 && +data.items[i].add_price <= 10) {
                         audio["expensive"].play();
                         setTimeout(border, 300, data.id, i, "yellow");
                     };
